@@ -1,7 +1,7 @@
 package jp.co.sample.form;
 
 /**
- * 管理者情報を挿入する為のドメイン.
+ * 管理者情報を挿入する為のフォーム.
  * 
  * @author adachiryuji
  *

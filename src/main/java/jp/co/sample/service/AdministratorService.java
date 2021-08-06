@@ -8,7 +8,7 @@ import jp.co.sample.domain.Administrator;
 import jp.co.sample.repository.AdministratorRepository;
 
 /**
- * 管理者情報ののサービスクラス
+ * 管理者情報ののサービスクラス.
  * 
  * @author adachiryuji
  *
@@ -19,14 +19,26 @@ import jp.co.sample.repository.AdministratorRepository;
 public class AdministratorService {
 	@Autowired
 	private AdministratorRepository administratorRepository;
-	
+
 	/**
 	 * 管理者情報リポジトリから登録メソッドを呼び出す.
 	 * 
-	 * @param administrator　管理者情報
+	 * @param administrator 管理者情報
 	 */
 	public void insert(Administrator administrator) {
 		administratorRepository.insert(administrator);
 	}
 	
+	/**
+	 * 管理者情報のメールアドレスとパスワードからログインするメソッド.
+	 * 
+	 * @param mailAddress　メールアドレス
+	 * @param password　パスワード
+	 * @return　管理者情報
+	 */
+	public Administrator login(String mailAddress,String password) {
+		Administrator administrator=administratorRepository.findByMailAddressAndPassword(mailAddress, password);
+		return administrator;
+	}
+
 }
